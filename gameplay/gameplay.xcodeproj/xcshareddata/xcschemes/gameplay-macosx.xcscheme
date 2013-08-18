@@ -29,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "42C932BB1491A0DB0098216A"
+            BuildableName = "OrcWars-macosx.app"
+            BlueprintName = "OrcWars-macosx"
+            ReferencedContainer = "container:../../OrcWars/OrcWars.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,6 +48,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "42C932BB1491A0DB0098216A"
+            BuildableName = "OrcWars-macosx.app"
+            BlueprintName = "OrcWars-macosx"
+            ReferencedContainer = "container:../../OrcWars/OrcWars.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

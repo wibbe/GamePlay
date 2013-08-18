@@ -7,8 +7,8 @@ set(CMAKE_C_COMPILER_INIT g++)
 
 # debug
 message( "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}" )
-if ( "${CMAKE_BUILD_TYPE}" STREQUAL "DEBUG" )
-    add_definitions(-D_DEBUG)
+if ( "${CMAKE_BUILD_TYPE}" STREQUAL "DEBUG" OR "${CMAKE_BUILD_TYPE}" STREQUAL "Debug" OR "${CMAKE_BUILD_TYPE}" STREQUAL "RelWithDebugInfo")
+  add_definitions(-D_DEBUG)
 endif()
 
 # architecture
@@ -22,7 +22,7 @@ endif()
 add_subdirectory(gameplay)
 
 # gameplay samples
-add_subdirectory(samples)
+# add_subdirectory(samples)
 
 # gameplay encoder
 # A pre-compiled executable can be found in 'gameplay/bin'

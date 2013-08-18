@@ -1003,7 +1003,7 @@ static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTime
 - (void)mouseMoved:(NSEvent*) event 
 {
     NSPoint point = [self convertPoint:[event locationInWindow] fromView:nil];
-    
+
     float y;
     if (__mouseCaptured)
     {
@@ -1633,9 +1633,13 @@ Platform* Platform::create(Game* game, void* attachToWindow)
 
 int Platform::enterMessagePump()
 {
+#ifdef _DEBUG
+    FileSystem::setResourcePath("./");
+#else
     NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
     NSString* path = [bundlePath stringByAppendingString:@"/Contents/Resources/"];
     FileSystem::setResourcePath([path cStringUsingEncoding:NSASCIIStringEncoding]);
+#endif
     
     // Read window settings from config.
     if (_game->getConfig())

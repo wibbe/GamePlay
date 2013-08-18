@@ -1765,6 +1765,12 @@ const char* Bundle::getObjectId(unsigned int index) const
     return (index >= _referenceCount ? NULL : _references[index].id.c_str());
 }
 
+bool Bundle::isMesh(unsigned int index) const
+{
+    GP_ASSERT(_references);
+    return (index >= _referenceCount ? false : _references[index].type == BUNDLE_TYPE_MESH);
+}
+
 Bundle::Reference::Reference()
     : type(0), offset(0)
 {

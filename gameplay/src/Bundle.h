@@ -97,6 +97,11 @@ public:
      */
     const char* getObjectId(unsigned int index) const;
 
+    /**
+     * Return true if the index of the object is of type mesh.
+     */
+    bool isMesh(unsigned int index) const;
+
 private:
 
     class Reference

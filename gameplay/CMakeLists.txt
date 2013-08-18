@@ -73,10 +73,6 @@ set(GAMEPLAY_SRC
     src/Game.inl
     src/Gamepad.cpp
     src/Gamepad.h
-    src/gameplay-main-android.cpp
-    src/gameplay-main-blackberry.cpp
-    src/gameplay-main-linux.cpp
-    src/gameplay-main-windows.cpp
     src/Gesture.h
     src/HeightField.cpp
     src/HeightField.h
@@ -159,10 +155,6 @@ set(GAMEPLAY_SRC
     src/Plane.inl
     src/Platform.h
     src/Platform.cpp
-    src/PlatformAndroid.cpp
-    src/PlatformBlackBerry.cpp
-    src/PlatformLinux.cpp
-    src/PlatformWindows.cpp
     src/Properties.cpp
     src/Properties.h
     src/Quaternion.cpp
@@ -616,8 +608,30 @@ include_directories(
     ../external-deps/glew/include
 )
 
-add_definitions(-D__linux__)
-add_definitions(-lstdc++)
+if (UNIX)
+  if (APPLE)
+    set(GAMEPLAY_SRC 
+        ${GAMEPLAY_SRC}
+        src/gameplay-main-macosx.mm
+        src/PlatformMacOSX.mm
+    )
+    set(CMAKE_OSX_ARCHITECTURES i386)
+  else()
+    set(GAMEPLAY_SRC 
+        ${GAMEPLAY_SRC}
+        src/gameplay-main-linux.cpp
+        src/PlatformLinux.cpp
+    )    
+    add_definitions(-D__linux__)
+    add_definitions(-lstdc++)
+  endif()
+else()
+set(GAMEPLAY_SRC 
+    ${GAMEPLAY_SRC}
+    src/gameplay-main-windows.cpp
+    src/PlatformWindows.cpp
+)
+endif()
 
 add_library(gameplay STATIC
     ${GAMEPLAY_SRC}
