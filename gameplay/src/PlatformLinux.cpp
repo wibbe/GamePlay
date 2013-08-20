@@ -1237,9 +1237,8 @@ namespace gameplay
                                     break;
                             }
 
-                            if (mouseEvt != gameplay::Mouse::MOUSE_PRESS_NONE)
-                                if (!gameplay::Platform::mouseEventInternal(mouseEvt, evt.xbutton.x, evt.xbutton.y, wheelDir))
-                                    gameplay::Platform::touchEventInternal(gameplay::Touch::TOUCH_PRESS, evt.xbutton.x, evt.xbutton.y, 0, true);
+                            if (!gameplay::Platform::mouseEventInternal(mouseEvt, evt.xbutton.x, evt.xbutton.y, wheelDir))
+                                gameplay::Platform::touchEventInternal(gameplay::Touch::TOUCH_PRESS, evt.xbutton.x, evt.xbutton.y, 0, true);
                         }
                         break;
 

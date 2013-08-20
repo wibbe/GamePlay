@@ -16,8 +16,9 @@ public:
      */
     enum MouseEvent
     {
+        MOUSE_PRESS_NONE = 0,
         MOUSE_PRESS_LEFT_BUTTON,
-        MOUSE_RELEASE_LEFT_BUTTON, 
+        MOUSE_RELEASE_LEFT_BUTTON,
         MOUSE_PRESS_MIDDLE_BUTTON = 3,
         MOUSE_RELEASE_MIDDLE_BUTTON = 4,
         MOUSE_PRESS_RIGHT_BUTTON = 5,
