@@ -531,7 +531,7 @@ static int getUnicode(gameplay::Keyboard::Key key)
             return 0;
     }
 }
-#include <linux/joystick.h> //included here so i avoid the naming conflict between KEY_* defined in input.h and the ones defined in gameplay/Keyboard.h 
+#include <linux/joystick.h> //included here so i avoid the naming conflict between KEY_* defined in input.h and the ones defined in gameplay/Keyboard.h
 namespace gameplay
 {
     extern void print(const char* format, ...)
@@ -626,7 +626,7 @@ namespace gameplay
         glXSwapIntervalMESA = (int(*)(unsigned int interval))glXGetProcAddressARB((GLubyte*)"glXSwapIntervalMESA");
 
         // Get the configs
-        int configAttribs[] = 
+        int configAttribs[] =
         {
             GLX_RENDER_TYPE,    GLX_RGBA_BIT,
             GLX_DRAWABLE_TYPE,  GLX_WINDOW_BIT,
@@ -767,9 +767,9 @@ namespace gameplay
 
 
     //Will need to be dynamic, also should be handled in Gamepad class
-    static const GamepadInfoEntry gamepadLookupTable[] = 
+    static const GamepadInfoEntry gamepadLookupTable[] =
     {
-        {0x0,0x0,"GENERIC XBOX360",2,6,20,2, 
+        {0x0,0x0,"GENERIC XBOX360",2,6,20,2,
                                              (GamepadJoystickAxisInfo[]) {
                                                                      {0,0,GP_AXIS_IS_XAXIS,0,0,2240,NEG_TO_POS},
                                                                      {1,0,GP_AXIS_IS_NEG,0,0,2240,NEG_TO_POS},
@@ -780,11 +780,11 @@ namespace gameplay
                                                                      {-1,0,0,0,0,0,NEG_TO_POS}
                                                                  },
                                              (long[]) {
-                                                                          -1,    
-                                                                          -1,  
-                                                                          -1,  
-                                                                          -1, 
-                                                                          -1, 
+                                                                          -1,
+                                                                          -1,
+                                                                          -1,
+                                                                          -1,
+                                                                          -1,
                                                                           Gamepad::BUTTON_UP,
                                                                           Gamepad::BUTTON_DOWN,
                                                                           Gamepad::BUTTON_LEFT,
@@ -802,7 +802,7 @@ namespace gameplay
                                                                           Gamepad::BUTTON_Y
                                                                          }
         },
-        {0x79,0x6,"DragonRise Inc. Generic USB Joystick",2,7,12,0, 
+        {0x79,0x6,"DragonRise Inc. Generic USB Joystick",2,7,12,0,
                                              (GamepadJoystickAxisInfo[]) {
                                                                      {0,1, GP_AXIS_IS_XAXIS,0,0,2240,NEG_TO_POS},
                                                                      {1,1,GP_AXIS_IS_NEG,0,0,2240,NEG_TO_POS},
@@ -814,21 +814,21 @@ namespace gameplay
                                                                      {-1,0,0,0,0,0,NEG_TO_POS}
                                                                  },
                                              (long[]) {
-                                                                          Gamepad::BUTTON_Y,    
-                                                                          Gamepad::BUTTON_B,  
-                                                                          Gamepad::BUTTON_A,  
-                                                                          Gamepad::BUTTON_X, 
-                                                                          Gamepad::BUTTON_L1, 
-                                                                          Gamepad::BUTTON_R1, 
-                                                                          Gamepad::BUTTON_L2,    
-                                                                          Gamepad::BUTTON_R2,   
-                                                                          Gamepad::BUTTON_MENU1,   
-                                                                          Gamepad::BUTTON_MENU2,   
+                                                                          Gamepad::BUTTON_Y,
+                                                                          Gamepad::BUTTON_B,
+                                                                          Gamepad::BUTTON_A,
+                                                                          Gamepad::BUTTON_X,
+                                                                          Gamepad::BUTTON_L1,
+                                                                          Gamepad::BUTTON_R1,
+                                                                          Gamepad::BUTTON_L2,
+                                                                          Gamepad::BUTTON_R2,
+                                                                          Gamepad::BUTTON_MENU1,
+                                                                          Gamepad::BUTTON_MENU2,
                                                                           Gamepad::BUTTON_L3,
                                                                           Gamepad::BUTTON_R3,
                                                                          }
         },
-        {0x54c,0x268,"Sony Corp. Batoh Device / PlayStation 3 Controller",2,27,19,2, 
+        {0x54c,0x268,"Sony Corp. Batoh Device / PlayStation 3 Controller",2,27,19,2,
                                              (GamepadJoystickAxisInfo[]) {
                                                                      {0,0,GP_AXIS_IS_XAXIS,0,0,2240,NEG_TO_POS},
                                                                      {1,0,GP_AXIS_IS_NEG,0,0,2240,NEG_TO_POS},
@@ -839,23 +839,23 @@ namespace gameplay
                                                                      {-1,0,0,0,0,0,NEG_TO_POS}
                                                                  },
                                              (long[]) {
-                                                                          Gamepad::BUTTON_MENU1,    
-                                                                          Gamepad::BUTTON_L3,  
-                                                                          Gamepad::BUTTON_R3,  
-                                                                          Gamepad::BUTTON_MENU2, 
-                                                                          Gamepad::BUTTON_UP, 
-                                                                          Gamepad::BUTTON_RIGHT, 
-                                                                          Gamepad::BUTTON_DOWN,    
-                                                                          Gamepad::BUTTON_LEFT,   
+                                                                          Gamepad::BUTTON_MENU1,
+                                                                          Gamepad::BUTTON_L3,
+                                                                          Gamepad::BUTTON_R3,
+                                                                          Gamepad::BUTTON_MENU2,
+                                                                          Gamepad::BUTTON_UP,
+                                                                          Gamepad::BUTTON_RIGHT,
+                                                                          Gamepad::BUTTON_DOWN,
+                                                                          Gamepad::BUTTON_LEFT,
                                                                           Gamepad::BUTTON_L2,  //Use Trigger Instead of BUTTON_L2? or both should be called
-                                                                          Gamepad::BUTTON_R2,  //Use Trigger Instead of BUTTON_R2? or both should be called                                                                        
+                                                                          Gamepad::BUTTON_R2,  //Use Trigger Instead of BUTTON_R2? or both should be called
                                                                           Gamepad::BUTTON_L1,
                                                                           Gamepad::BUTTON_R1,
-                                                                          Gamepad::BUTTON_Y,    
-                                                                          Gamepad::BUTTON_B,  
-                                                                          Gamepad::BUTTON_A,  
-                                                                          Gamepad::BUTTON_X, 
-                                                                          Gamepad::BUTTON_MENU3, 
+                                                                          Gamepad::BUTTON_Y,
+                                                                          Gamepad::BUTTON_B,
+                                                                          Gamepad::BUTTON_A,
+                                                                          Gamepad::BUTTON_X,
+                                                                          Gamepad::BUTTON_MENU3,
                                                                           -1,
                                                                           -1
                                                                          }
@@ -1027,7 +1027,7 @@ namespace gameplay
 
         Platform::gamepadEventConnectedInternal(handle,btnsNum,numJS,numTR,vendorId,productId,"",name);
 
-        ConnectedGamepadDevInfo info = {devId,handle,gpInfo}; 
+        ConnectedGamepadDevInfo info = {devId,handle,gpInfo};
         __connectedGamepads.push_back(info);
     }
 
@@ -1214,7 +1214,9 @@ namespace gameplay
 
                     case ButtonPress:
                         {
-                            gameplay::Mouse::MouseEvent mouseEvt;
+                            gameplay::Mouse::MouseEvent mouseEvt = gameplay::Mouse::MOUSE_PRESS_NONE;
+                            int wheelDir = 0;
+
                             switch (evt.xbutton.button)
                             {
                                 case 1:
@@ -1228,17 +1230,16 @@ namespace gameplay
                                     break;
                                 case 4:
                                 case 5:
-                                    gameplay::Platform::mouseEventInternal(gameplay::Mouse::MOUSE_WHEEL,
-                                            evt.xbutton.x, evt.xbutton.y,
-                                            evt.xbutton.button == Button4 ? 1 : -1);
+                                    wheelDir = evt.xbutton.button == Button4 ? 1 : -1;
+                                    mouseEvt = gameplay::Mouse::MOUSE_WHEEL;
                                     break;
                                 default:
                                     break;
                             }
-                            if (!gameplay::Platform::mouseEventInternal(mouseEvt, evt.xbutton.x, evt.xbutton.y, 0))
-                            {
-                                gameplay::Platform::touchEventInternal(gameplay::Touch::TOUCH_PRESS, evt.xbutton.x, evt.xbutton.y, 0, true);
-                            }
+
+                            if (mouseEvt != gameplay::Mouse::MOUSE_PRESS_NONE)
+                                if (!gameplay::Platform::mouseEventInternal(mouseEvt, evt.xbutton.x, evt.xbutton.y, wheelDir))
+                                    gameplay::Platform::touchEventInternal(gameplay::Touch::TOUCH_PRESS, evt.xbutton.x, evt.xbutton.y, 0, true);
                         }
                         break;
 
@@ -1387,12 +1388,12 @@ namespace gameplay
         {
             return;
         }
-        
+
             //todo
-            
+
             __multiSampling = enabled;
     }
-    
+
         bool Platform::isMultiSampling()
         {
             return __multiSampling;
@@ -1634,7 +1635,7 @@ namespace gameplay
                     }
                     break;
 
-                default: 
+                default:
                     GP_WARN("unhandled gamepad event: %x\n", jevent.type);
             }
         }
