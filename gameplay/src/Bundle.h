@@ -36,9 +36,9 @@ public:
     /**
      * Loads the scene with the specified ID from the bundle.
      * If id is NULL then the first scene found is loaded.
-     * 
+     *
      * @param id The ID of the scene to load (NULL to load the first scene).
-     * 
+     *
      * @return The loaded scene, or NULL if the scene could not be loaded.
      * @script{create}
      */
@@ -48,7 +48,7 @@ public:
      * Loads a node with the specified ID from the bundle.
      *
      * @param id The ID of the node to load in the bundle.
-     * 
+     *
      * @return The loaded node, or NULL if the node could not be loaded.
      * @script{create}
      */
@@ -58,7 +58,7 @@ public:
      * Loads a mesh with the specified ID from the bundle.
      *
      * @param id The ID of the mesh to load.
-     * 
+     *
      * @return The loaded mesh, or NULL if the mesh could not be loaded.
      * @script{create}
      */
@@ -68,7 +68,7 @@ public:
      * Loads a font with the specified ID from the bundle.
      *
      * @param id The ID of the font to load.
-     * 
+     *
      * @return The loaded font, or NULL if the font could not be loaded.
      * @script{create}
      */
@@ -92,10 +92,12 @@ public:
      * Returns the unique identifier of the top-level object at the specified index in this bundle.
      *
      * @param index The index of the object.
-     * 
+     *
      * @return The ID of the object at the given index, or NULL if index is invalid.
      */
     const char* getObjectId(unsigned int index) const;
+
+    const char * getObjectType(unsigned int index) const;
 
     /**
      * Return true if the index of the object is of type mesh.
@@ -179,7 +181,7 @@ private:
     /**
      * Returns the ID of the object at the current file position.
      * Returns NULL if not found.
-     * 
+     *
      * @return The ID string or NULL if not found.
      */
     const char* getIdFromOffset() const;
@@ -189,14 +191,14 @@ private:
      * Returns NULL if not found.
      *
      * @param offset The file offset.
-     * 
+     *
      * @return The ID string or NULL if not found.
      */
     const char* getIdFromOffset(unsigned int offset) const;
 
     /**
      * Gets the path to the bundle's default material file, if it exists.
-     * 
+     *
      * @return The bundle's default material path. Returns an empty string if the default material does not exist.
      */
     const std::string& getMaterialPath();
@@ -207,16 +209,16 @@ private:
      *
      * @param id The ID string to search for.
      * @param type The object type.
-     * 
+     *
      * @return The reference object or NULL if there was an error.
      */
     Reference* seekTo(const char* id, unsigned int type);
 
     /**
      * Seeks the file pointer to the first object that matches the given type.
-     * 
+     *
      * @param type The object type.
-     * 
+     *
      * @return The reference object or NULL if there was an error.
      */
     Reference* seekToFirstType(unsigned int type);
@@ -238,7 +240,7 @@ private:
      *
      * @param id The ID of the mesh to load.
      * @param nodeId The id of the mesh's model's parent node.
-     * 
+     *
      * @return The loaded mesh, or NULL if the mesh could not be loaded.
      */
     Mesh* loadMesh(const char* id, const char* nodeId);
@@ -247,35 +249,35 @@ private:
      * Reads an unsigned int from the current file position.
      *
      * @param ptr A pointer to load the value into.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     bool read(unsigned int* ptr);
 
     /**
      * Reads an unsigned char from the current file position.
-     * 
+     *
      * @param ptr A pointer to load the value into.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     bool read(unsigned char* ptr);
 
     /**
      * Reads a float from the current file position.
-     * 
+     *
      * @param ptr A pointer to load the value into.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     bool read(float* ptr);
 
     /**
      * Reads an array of values and the array length from the current file position.
-     * 
+     *
      * @param length A pointer to where the length of the array will be copied to.
      * @param ptr A pointer to the array where the data will be copied to.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     template <class T>
@@ -283,10 +285,10 @@ private:
 
     /**
      * Reads an array of values and the array length from the current file position.
-     * 
+     *
      * @param length A pointer to where the length of the array will be copied to.
      * @param values A pointer to the vector to copy the values to. The vector will be resized if it is smaller than length.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     template <class T>
@@ -294,30 +296,30 @@ private:
 
     /**
      * Reads an array of values and the array length from the current file position.
-     * 
+     *
      * @param length A pointer to where the length of the array will be copied to.
      * @param values A pointer to the vector to copy the values to. The vector will be resized if it is smaller than length.
      * @param readSize The size that reads will be performed at, size must be the same as or smaller then the sizeof(T)
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     template <class T>
     bool readArray(unsigned int* length, std::vector<T>* values, unsigned int readSize);
-    
+
     /**
      * Reads 16 floats from the current file position.
      *
      * @param m A pointer to float array of size 16.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     bool readMatrix(float* m);
 
     /**
      * Reads an xref string from the current file position.
-     * 
+     *
      * @param id The string to load the ID string into.
-     * 
+     *
      * @return True if successful, false if an error occurred.
      */
     bool readXref(std::string& id);
@@ -325,7 +327,7 @@ private:
     /**
      * Recursively reads nodes from the current file position.
      * This method will load cameras, lights and models in the nodes.
-     * 
+     *
      * @return A pointer to new node or NULL if there was an error.
      */
     Node* readNode(Scene* sceneContext, Node* nodeContext);
@@ -346,7 +348,7 @@ private:
 
     /**
      * Reads a model from the current file position.
-     * 
+     *
      * @return A pointer to a new model or NULL if there was an error.
      */
     Model* readModel(const char* nodeId);
@@ -378,25 +380,25 @@ private:
 
     /**
      * Reads an animation from the current file position.
-     * 
+     *
      * @param scene The scene to load the animations into.
      */
     void readAnimation(Scene* scene);
 
     /**
      * Reads an "animations" object from the current file position and all of the animations contained in it.
-     * 
+     *
      * @param scene The scene to load the animations into.
      */
     void readAnimations(Scene* scene);
 
     /**
      * Reads an animation channel at the current file position into the given animation.
-     * 
+     *
      * @param scene The scene that the animation is in.
      * @param animation The animation to the load channel into.
      * @param animationId The ID of the animation that this channel is loaded into.
-     * 
+     *
      * @return The animation that the channel was loaded into.
      */
     Animation* readAnimationChannel(Scene* scene, Animation* animation, const char* animationId);
@@ -404,14 +406,14 @@ private:
     /**
      * Reads the animation channel data at the current file position into the given animation
      * (with the given animation target and target attribute).
-     * 
+     *
      * Note: this is used by Bundle::loadNode(const char*, Scene*) and Bundle::readAnimationChannel(Scene*, Animation*, const char*).
-     * 
+     *
      * @param animation The animation to the load channel into.
      * @param id The ID of the animation that this channel is loaded into.
      * @param target The animation target.
      * @param targetAttribute The target attribute being animated.
-     * 
+     *
      * @return The animation that the channel was loaded into.
      */
     Animation* readAnimationChannelData(Animation* animation, const char* id, AnimationTarget* target, unsigned int targetAttribute);

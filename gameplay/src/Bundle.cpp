@@ -1765,6 +1765,30 @@ const char* Bundle::getObjectId(unsigned int index) const
     return (index >= _referenceCount ? NULL : _references[index].id.c_str());
 }
 
+const char * Bundle::getObjectType(unsigned int index) const
+{
+    if (index >= _referenceCount)
+        return "";
+
+    switch (_references[index].type)
+    {
+        case BUNDLE_TYPE_NODE:
+            return "NODE";
+
+        case BUNDLE_TYPE_SCENE:
+            return "SCENE";
+
+        case BUNDLE_TYPE_MESH:
+            return "MESH";
+
+        case BUNDLE_TYPE_FONT:
+            return "FONT";
+
+        default:
+            return "UNKNOWN";
+    }
+}
+
 bool Bundle::isMesh(unsigned int index) const
 {
     GP_ASSERT(_references);
